@@ -11,38 +11,48 @@
 <body>
 
   <header class="header">
-    <div class="brand">
-      <span class="brand-icon">💧</span>
+    <a class="brand" href="#main" aria-label="AquaPure home">
+      <span class="brand-icon" aria-hidden="true">💧</span>
       <span>AquaPure</span>
-    </div>
-    <p>Every Drop Counts!</p>
+    </a>
+    <p class="header-note"><span class="header-spark" aria-hidden="true"></span> Every drop counts</p>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <section class="intro">
-      <h1>Water Drop Challenge</h1>
-      <p>Collect the water drops and save every drop!</p>
+      <p class="eyebrow">A 30-second water-saving sprint</p>
+      <h1>Water Drop <span>Challenge</span></h1>
+      <p>Catch the drops. Keep the current flowing.</p>
     </section>
 
     <section class="scoreboard" aria-label="Game statistics">
-      <div class="stat">
-        <span>🏆 Score</span>
-        <strong id="score">0</strong>
+      <div class="stat score-stat">
+        <span class="stat-label"><span aria-hidden="true">✳</span> Score</span>
+        <strong id="score" aria-live="polite">0</strong>
+        <span class="stat-caption">points collected</span>
       </div>
 
-      <div class="stat">
-        <span>⏱️ Time</span>
-        <strong id="timer">30</strong>
+      <div id="timer-stat" class="stat timer-stat">
+        <span class="stat-label"><span aria-hidden="true">◷</span> Time left</span>
+        <strong><span id="timer" aria-live="off">30</span><span class="seconds">sec</span></strong>
+        <span class="stat-caption">make it count</span>
       </div>
 
-      <div class="stat">
-        <span>🎯 Goal</span>
+      <div class="stat goal-stat">
+        <span class="stat-label"><span aria-hidden="true">◎</span> Goal</span>
         <strong>100</strong>
+        <span class="stat-caption">points to win</span>
       </div>
     </section>
 
-    <div class="progress-track" aria-label="Progress toward winning">
-      <div id="progress" class="progress-bar"></div>
+    <div class="progress-region">
+      <div class="progress-copy">
+        <span>Journey to the goal</span>
+        <span id="progress-label">0 / 100</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Progress toward winning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress" class="progress-bar"></div>
+      </div>
     </div>
 
     <section id="game-area"
@@ -50,11 +60,12 @@
       aria-label="Game area. Click or tap the water drops to collect them.">
 
       <div id="welcome" class="message">
-        <span class="welcome-icon">💧</span>
-        <h2>Ready to Play?</h2>
-        <p>Collect 10 water drops to win!</p>
+        <span class="welcome-icon" aria-hidden="true">💧</span>
+        <p class="welcome-kicker">Your pond is waiting</p>
+        <h2>Ready to make a splash?</h2>
+        <p>Collect 10 drops in 30 seconds to reach the 100-point goal.</p>
         <button id="start-btn" class="button primary">
-          Start Game
+          <span>Start challenge</span><span aria-hidden="true">→</span>
         </button>
       </div>
 
@@ -70,21 +81,25 @@
 
     <div class="controls">
       <button id="reset-btn" class="button secondary">
-        ↻ Reset Game
+        <span aria-hidden="true">↺</span> Reset game
       </button>
     </div>
 
     <section class="instructions">
-      <h2>How to Play</h2>
-      <p>💧 Click or tap each water drop to earn 10 points.</p>
-      <p>⏱️ Collect 10 drops before the 30-second timer ends.</p>
-      <p>🌊 Reach 100 points to win the challenge!</p>
+      <div class="instructions-heading">
+        <span class="instructions-mark" aria-hidden="true">✳</span>
+        <h2>How to play</h2>
+      </div>
+      <div class="steps">
+        <p><span>01</span> Tap a drop to collect <strong>10 points</strong>.</p>
+        <p><span>02</span> Keep moving before the <strong>30 seconds</strong> run out.</p>
+        <p><span>03</span> Reach <strong>100 points</strong> to win.</p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>💙 AquaPure — Protect Water, Protect Life.</p>
-    <p class="small">A student-created water conservation game.</p>
+    <p><span aria-hidden="true">💧</span> AquaPure <span class="footer-divider">/</span> Protect water, protect life.</p>
   </footer>
 
 </body>

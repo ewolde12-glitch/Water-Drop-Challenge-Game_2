@@ -2,6 +2,9 @@
 const scoreDisplay = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
 const progressBar = document.getElementById("progress");
+const progressTrack = document.querySelector(".progress-track");
+const progressLabel = document.getElementById("progress-label");
+const timerStat = document.getElementById("timer-stat");
 
 const gameArea = document.getElementById("game-area");
 const welcome = document.getElementById("welcome");
@@ -28,6 +31,8 @@ function updateScore() {
 
   const progress = Math.min((score / WIN_SCORE) * 100, 100);
   progressBar.style.width = progress + "%";
+  progressTrack.setAttribute("aria-valuenow", progress);
+  progressLabel.textContent = `${score} / ${WIN_SCORE}`;
 }
 
 // Remove all drops from the game area
@@ -89,6 +94,7 @@ function startGame() {
 
   updateScore();
   timerDisplay.textContent = timeLeft;
+  timerStat.classList.remove("is-urgent");
 
   welcome.classList.add("hidden");
   gameMessage.textContent = "Collect as many drops as you can!";
@@ -100,6 +106,10 @@ function startGame() {
   timerInterval = setInterval(() => {
     timeLeft--;
     timerDisplay.textContent = timeLeft;
+
+    if (timeLeft <= 10) {
+      timerStat.classList.add("is-urgent");
+    }
 
     if (timeLeft <= 0) {
       endGame();
@@ -114,6 +124,7 @@ function winGame() {
   playing = false;
   stopIntervals();
   removeDrops();
+  timerStat.classList.remove("is-urgent");
 
   gameMessage.textContent = "🎉 YOU WIN! Amazing job! 🎉";
 
@@ -141,6 +152,7 @@ function endGame() {
   playing = false;
   stopIntervals();
   removeDrops();
+  timerStat.classList.remove("is-urgent");
 
   gameMessage.textContent = "⏰ Time is up!";
 
@@ -216,6 +228,7 @@ function resetGame() {
 
   score = 0;
   timeLeft = GAME_TIME;
+  timerStat.classList.remove("is-urgent");
 
   updateScore();
   timerDisplay.textContent = timeLeft;
