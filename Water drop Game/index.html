@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Drop Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <span class="brand-icon">💧</span>
+      <span>AquaPure</span>
+    </div>
+    <p>Every Drop Counts!</p>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h1>Water Drop Challenge</h1>
+      <p>Collect the water drops and save every drop!</p>
+    </section>
+
+    <section class="scoreboard" aria-label="Game statistics">
+      <div class="stat">
+        <span>🏆 Score</span>
+        <strong id="score">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>⏱️ Time</span>
+        <strong id="timer">30</strong>
+      </div>
+
+      <div class="stat">
+        <span>🎯 Goal</span>
+        <strong>100</strong>
+      </div>
+    </section>
+
+    <div class="progress-track" aria-label="Progress toward winning">
+      <div id="progress" class="progress-bar"></div>
+    </div>
+
+    <section id="game-area"
+      class="game-area"
+      aria-label="Game area. Click or tap the water drops to collect them.">
+
+      <div id="welcome" class="message">
+        <span class="welcome-icon">💧</span>
+        <h2>Ready to Play?</h2>
+        <p>Collect 10 water drops to win!</p>
+        <button id="start-btn" class="button primary">
+          Start Game
+        </button>
+      </div>
+
+      <div id="game-message"
+        class="game-message"
+        role="status"
+        aria-live="polite">
+      </div>
+
+      <div id="confetti" class="confetti-container"
+        aria-hidden="true"></div>
+    </section>
+
+    <div class="controls">
+      <button id="reset-btn" class="button secondary">
+        ↻ Reset Game
+      </button>
+    </div>
+
+    <section class="instructions">
+      <h2>How to Play</h2>
+      <p>💧 Click or tap each water drop to earn 10 points.</p>
+      <p>⏱️ Collect 10 drops before the 30-second timer ends.</p>
+      <p>🌊 Reach 100 points to win the challenge!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>💙 AquaPure — Protect Water, Protect Life.</p>
+    <p class="small">A student-created water conservation game.</p>
+  </footer>
+
+</body>
+</html>
